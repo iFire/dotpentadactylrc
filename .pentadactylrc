@@ -1,0 +1,57 @@
+"1.0b6 (created: 2011/05/09 09:25:18)
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" General
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+loadplugins '\.(js|penta)$'
+group user
+
+set guioptions=Nrs
+set mapleader=','
+set maxitems=10
+set nextpattern=\s*下一页|下一篇|下页|>>\s*,\bnext\b,^>$,^(>>|»)$,^(>|»),(>|»)$,\bmore\b
+set previouspattern=\s*上一页|上一篇|上页|<<\s*,\bprev|previous\b,^<$,^(<<|«)$,^(<|«),(<|«)$
+
+"Disable the bell in Pentadactyl
+javascript dactyl.beep = function() { return false; }
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Mappings
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+map <leader>ie :js io.run("c:\\program files\\internet explorer\\iexplore.exe", [buffer.URL])<CR>
+noremap <leader>r :restart<cr>
+noremap <leader>a :addons<cr>
+noremap <leader>d :downloads<cr>
+noremap <leader>eu :set encoding=UTF-8<cr>
+noremap <leader>eg :set encoding=GB2312<cr>
+
+map -modes=n,v <lt> <C-o>
+map -modes=n,v h -builtin gT
+map -modes=n,v H -builtin h
+map -modes=n,v j -builtin 5j
+map -modes=n,v k -builtin 5k
+map -modes=n,v l -builtin gt
+map -modes=n,v L -builtin l
+map -modes=n,v > <C-i>
+
+" Toggle the toolbar
+"map <C-Up> :se go-=T<cr>
+"map <C-Down> :se go+=T<cr>
+map <silent> <f2> :se go!=T<cr>
+
+" search by google
+command! google -nargs=* tabopen g <args>
+map s :google<space>
+map S :exe ":google "+content.getSelection()<CR>
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Qmarks
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+qmark a https://www.google.com/accounts/b/0/ManageAccount?hl=zh-CN&service=mail
+qmark g http://www.google.com.hk
+qmark G http://www.google.com/ncr
+qmark m http://www.google.cn/music
+qmark v http://vimfox.info
+
+
+" vim: set ft=pentadactyl:
